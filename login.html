@@ -19,11 +19,33 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+      <!--Código desarrollado-->
+
+      <div class="text-center">
+
+        
+          <img src="img/login.png" width="400 px">
+          <br><br>
+          <h1 class="mb-3">Inicio de sesión</h1>
+
+          
+              <label for="email" class="form-label">Email</label><br>
+              <input type="text" id="email" size="45" placeholder="Email">
+            <br><br>
+              <label for="password" class="form-label">Contraseña</label><br>
+              <input type="text" id="password" size="45" placeholder="Constraseña">
+            
+             <br><br>
+            <button class="btn btn-primary" type="button" id="regBtn">Ingresar</button>
+         
+
       </div>
+
+
     </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -34,6 +56,16 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+    <p>Ingresa tu e-mail y/o contraseña</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+
   <script src="js/login.js"></script>
 </body>
 
