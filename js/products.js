@@ -107,3 +107,7 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
 });
 
 });
+
+if(localStorage.getItem('userlog') != undefined){
+    document.getElementById("usuario").innerHTML = localStorage.getItem('userlog');
+    }
