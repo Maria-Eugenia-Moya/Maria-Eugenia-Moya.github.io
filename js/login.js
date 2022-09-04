@@ -1,3 +1,5 @@
+//Inicio de funcionalidad entrega 1
+
 function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
 }
@@ -9,7 +11,8 @@ document.getElementById("regBtn").addEventListener("click", function(){
 
     if (email && password){
 
-        window.location = "index.html";
+        localStorage.setItem('userlog', email)
+        window.location = 'index.html';
 
     } else {
         showAlertError();
