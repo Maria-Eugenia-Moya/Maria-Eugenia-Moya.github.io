@@ -10,7 +10,12 @@ document.getElementById("regBtn").addEventListener("click", function(){
     const password = document.getElementById("password").value
 
     if (email && password){
+/*var email_analizado = /^([^]+)@(\w+).(\w)$/.exec(email);
 
+var usuario = email
+usario.indexOf('@')
+
+*/
         localStorage.setItem('userlog', email)
         window.location = 'index.html';
 
