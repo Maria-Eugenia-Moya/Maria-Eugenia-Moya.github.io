@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(resp => resp.json())
     .then(data =>{
         producto = data;
+        relproducto = data.relatedProducts;
+        showRelatedProducts(relproducto);
         document.getElementById("productName").innerHTML = producto.name;
         document.getElementById("productPrice").innerHTML = producto.cost + " " + producto.currency;
         document.getElementById("productDescription").innerHTML = producto.description;
@@ -20,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("img2").src = producto.images[1];
         document.getElementById("img3").src = producto.images[2];
         document.getElementById("img4").src = producto.images[3];
+        //document.getElementById("imgRProd1").src = relproducto.image[0];
+        //document.getElementById("imgRProd2").src = relproducto.image[1];
+        //document.getElementById("relatedProd1").innerHTML = relproducto.name[0];
+        //document.getElementById("relatedProd1").innerHTML = relproducto.name[1];
 
         fetch(URLCOMMENT)
         .then(resp => resp.json())
@@ -30,6 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
  });
+
+ /*document.getElementById("rProd1").addEventListener("click", function() {
+    localStorage.setItem("id");
+    window.location = "product-info.html"
+});
+document.getElementById("rProd2").addEventListener("click", function() {
+    localStorage.setItem("id");
+    window.location = "product-info.html"
+});*/
 
 });
 
@@ -64,6 +79,30 @@ function showComments(array){
         }
         return htmlStars;
     };
+
+    function setProduct(id){
+        localStorage.setItem("ProdID", id);
+        window.location.href = "product-info.html";
+    }
+    
+    function showRelatedProducts(array){
+        
+        let htmlContentToAppend = "";
+        for (let i = 0; i < array.length; i++){
+            let rprod = array[i];
+                htmlContentToAppend += `
+                <div class="col-3" onclick="setProduct(${rprod.id})">
+                <div class="card mb-4 shadow-sm custom-card cursor-active">
+                            <img src=` + rprod.image + ` alt="product image"><br>
+                            <div class="card-body">
+                                <p> `+ rprod.name +`</p>
+                            </div> 
+                </div>
+                </div>`
+            }
+            
+            document.getElementById("related-products").innerHTML = htmlContentToAppend;
+        }
 
 document.getElementById("regBtn").addEventListener("click", function(){
 
