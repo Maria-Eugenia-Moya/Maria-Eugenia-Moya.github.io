@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     if(localStorage.getItem('userlog') != undefined){
     document.getElementById("usuario").innerHTML = localStorage.getItem('userlog');
+    } else {
+        
     }
 
 });
